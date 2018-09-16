@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<form action="ServletCal">
+		<fieldset> 
+		<input type="text" name="visor" id="visor" size="14" > <br> <br>
+			<input type="button" value="7" id="7" onclick="recebevalor(value)">
+			<input type="button" value="8" id="8" onclick="recebevalor(value)">
+			<input type="button" value="9" id="9" onclick="recebevalor(value)">
+			<input type="submit" value="=" id="=" > <br> <br>
+
+			<input type="button" value="4" id="4" onclick="recebevalor(value)">
+			<input type="button" value="5" id="5" onclick="recebevalor(value)">
+			<input type="button" value="6" id="6" onclick="recebevalor(value)">
+			<input type="button" value="+" id="+" onclick="recebevalor(value)"> <br> <br>
+
+			<input type="button" value="1" id="1" onclick="recebevalor(value)">
+			<input type="button" value="2" id="2" onclick="recebevalor(value)">
+			<input type="button" value="3" id="3" onclick="recebevalor(value)">
+			<input type="button" value="-" id="-" onclick="recebevalor(value)"> <br> <br>
+
+			<input type="reset" value="C" id="C" onclick="recebevalor(value)">
+			<input type="button" value="0" id="0" onclick="recebevalor(value)">
+			<input type="button" value="/" id="/" onclick="recebevalor(value)">
+			<input type="button" value="x" id="x" onclick="recebevalor(value)"> <br> <br>
+		</fieldset>
+
+	</form>
+</body>
+<script type="text/javascript">
+	function recebevalor(valor){
+		
+	
+		document.getElementById('visor').value += valor;
+		
+	}
+
+</script>
+</html>
