@@ -27,7 +27,7 @@ public class servidor extends HttpServlet {
 		String dataEmTexto=request.getParameter("dataNascimento");
 		
 		if(nome.equals("adriano")){
-			nome=request.getParameter("nome")+"cardoso medeiros";
+			nome=request.getParameter("nome")+" cardoso medeiros";
 		}else{
 			nome=request.getParameter("nome")+"não é o CARDOSO";
 		}
