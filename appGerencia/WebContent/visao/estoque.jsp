@@ -7,6 +7,8 @@
 	<meta charset="UTF-8"/>
 	<link rel="stylesheet" type="text/css" href="../css/estilizacao.css">
 	<link rel="stylesheet" type="text/css" href="../css/estiloTelaEstoque.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="../javaScript/scripts.js"></script>
 	<style>
 		#estoqueNav {
 		 background-color: grey;
@@ -108,10 +110,6 @@
 										<tr>
 											<th>Descrição</th>
 											<th>Quantidade</th>
-										</tr>
-										<tr>
-											<td></td>
-											<td></td>
 										</tr>
 									</table>
 									<br>

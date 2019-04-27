@@ -7,6 +7,8 @@
 	<meta charset="UTF-8"/>
 	<link rel="stylesheet" type="text/css" href="../css/estilizacao.css">
 	<link rel="stylesheet" type="text/css" href="../css/inputsTelaVenda.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="../javaScript/scripts.js"></script>
 	<style>
 		#vendaNav {
 		 background-color: grey;
@@ -38,11 +40,12 @@
 						</datalist>
 					<label class="cInputDir">Quantidade:</label><input id="inputQuantidadeProdutoVenda" class="cInputDir" type="number" name="quantidadeProdutoVenda" min="1" placeholder="und"><br><br>
 					<input id="inputDescontoItemProduto" type="number" name="descontoItemProduto" min="0" placeholder="Valor de Desconto">
-					<input id="inputAddPreVenda" class="cInputDir" type="reset" name="addPreVenda" value="OK"><br><br>
+					<input id="inputAddPreVenda" class="cInputDir" type="button" name="addPreVenda" value="OK"><br><br>
 				</div>
 				<div>
 					<table id="tablePreVenda">
 						<tr>
+						    <th>Item</th>
 							<th>Código</th>
 							<th>Produto</th>
 							<th>Qtd</th>
@@ -50,33 +53,9 @@
 							<th>Desconto</th>
 							<th>Total</th>
 						</tr>
-						<tr>
-							<td>001</td>
-							<td>Produto001</td>
-							<td>1</td>
-							<td>R$6,00</td>
-							<td></td>
-							<td>R$6,00</td>
-						</tr>
-						<tr>
-							<td>002</td>
-							<td>Produto002</td>
-							<td>1</td>
-							<td>R$6,00</td>
-							<td>R$1,00</td>
-							<td>R$5,00</td>
-						</tr>
-						<tr>
-							<td>003</td>
-							<td>Produto003</td>
-							<td>1</td>
-							<td>R$6,00</td>
-							<td></td>
-							<td>R$6,00</td>
-						</tr>
 					</table>
-					<label>Valor Desconto</label><input id="inputValorDescontoTotalDaVenda" type="number" name="valorDescontoTotalDaVenda" min="0" placeholder="R$ 1,00" readonly>
-					<label class="cInputDir">Valor Total</label><input id="inputValorTotalDaVenda" class="cInputDir" type="number" name="valorTotalDaVenda" min="0" placeholder="R$ 17,00" readonly><br><br>
+					<label>Valor Desconto</label><input id="inputValorDescontoTotalDaVenda" type="number" name="valorDescontoTotalDaVenda" readonly>
+					<label class="cInputDir">Valor Total</label><input id="inputValorTotalDaVenda" class="cInputDir" type="number" name="valorTotalDaVenda" readonly><br><br>
 					<div id="inputSubmitReset">
 						<input id="inputFinalizarVenda" type="submit" name="finalizarVenda" value="Finalizar">
 						<input id="inputCancelarVenda" type="reset" name="cancelarVenda" value="Cancelar">
