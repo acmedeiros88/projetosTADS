@@ -5,8 +5,8 @@
 <html lang="pt-br">
 <head>
 	<meta charset="UTF-8"/>
-	<link rel="stylesheet" type="text/css" href="../css/estilizacao.css">
-	<link rel="stylesheet" type="text/css" href="../css/estiloTelaPedido.css">
+	<link rel="stylesheet" type="text/css" href="css/estilizacao.css">
+	<link rel="stylesheet" type="text/css" href="css/estiloTelaPedido.css">
 	<style>
 		#pedidoNav {
 		 background-color: grey;

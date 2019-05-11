@@ -9,10 +9,9 @@ public class ClienteDao {
 	GenericDao daoGenerico = new GenericDao();
 
 	public boolean salvar(Cliente cliente) {
-		return daoGenerico.salvar(cliente);
-	}
-
-	public boolean atualizar(Cliente cliente) {
+		if(daoGenerico.buscarPorId(Cliente.class,cliente.getNumTelefone())==null) {
+			return daoGenerico.salvar(cliente);
+		}
 		return daoGenerico.atualizar(cliente);
 	}
 
@@ -28,4 +27,6 @@ public class ClienteDao {
 	public List<Cliente> getListaClientes(){
 		return (List<Cliente>) daoGenerico.listarTodos(Cliente.class);
 	}
+	
+	
 }

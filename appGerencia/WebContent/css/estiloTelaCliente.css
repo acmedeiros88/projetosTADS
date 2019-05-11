@@ -12,6 +12,4 @@
 #inputNomeCliente, #inputEstabelecimentoCliente{
 	width: 60%;
 }
-#gerenciar input[type=button], #inputCancelarCadastroCliente{
-	width: 20%;
-}
+

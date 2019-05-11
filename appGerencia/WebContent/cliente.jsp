@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>    
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+<%@ page language="java" import="entity.Cliente" %> 
 <!DOCTYPE html>
 <html>
 <head lang="pt-br">
 	<meta charset="UTF-8"/>
-	<link rel="stylesheet" type="text/css" href="../css/estilizacao.css">
-	<link rel="stylesheet" type="text/css" href="../css/estiloTelaCliente.css">
+	<link rel="stylesheet" type="text/css" href="css/estilizacao.css">
+	<link rel="stylesheet" type="text/css" href="css/estiloTelaCliente.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<style>
 		#clienteNav {
 		 background-color: grey;
@@ -21,7 +23,7 @@
 	    
 		<section id="sectionCliente">
 			<h1>CLIENTE</h1>
-			<form>
+			<form action="GerenciarCliente" method="post">
 				<nav class="subMenu">
 					<ul>
 						<li name="gerenciar" class="cCliente" style="padding: 3.05% 1.6% 1% 1%">
@@ -29,17 +31,17 @@
 							<label for="inputGerenciarCliente">Gerenciar</label>
 							<div class="contentArticle">
 								<article id="gerenciar" class="conteudoTab">
-									<input type="number" id="inputTelefoneCliente" name="telefoneCliente" placeholder="Telefone">
+									<input id="inputTelefoneCliente" type="text" name="telefoneCliente" placeholder="Telefone" value="">
 									<br>
-									<input id="inputNomeCliente" type="text" name="nomeCliente" placeholder="Nome">
+									<input id="inputNomeCliente" type="text" name="nomeCliente" placeholder="Nome" value="">
 									<br>
-									<input id="inputEstabelecimentoCliente" type="text" name="estabelecimentoCliente" placeholder="Estabelecimento">
+									<input id="inputEstabelecimentoCliente" type="text" name="estabelecimentoCliente" placeholder="Estabelecimento" value="">
 									<br>
-									<textarea id="textareaObservacaoCliente" name="observacaoCliente" placeholder="Observação"></textarea>
+									<textarea id="textareaObservacaoCliente" name="observacaoCliente" placeholder="Observação" value=""></textarea>
 									<br>
-									<input id="inputSalvarCadastroCliente" type="button" name="salvarCadastroCliente" value="Salvar">
-									<input id="inputExcluirCadastroCliente" type="button" name="excluirCadastroCliente" value="Excluir">
-									<input id="inputCancelarCadastroCliente" type="reset" name="cancelarCadastroCliente" value="Cancelar">
+									<input id="inputSalvarCadastroCliente" type="submit" value="Salvar" name="acao">
+									<input id="inputExcluirCadastroCliente" type="submit" value="Excluir" name="acao">
+									<input id="inputCancelarCadastroCliente" type="reset" value="Cancelar">
 								</article>
 							</div>
 						</li>
@@ -73,7 +75,7 @@
 										</tr>
 									</table>
 									<br>
-									<input id="inputSalvarSaidaProduto" type="button" name="salvarSaidaProduto" value="Salvar">
+									<input id="inputSalvarSaidaProduto" type="submit" name="salvarSaidaProduto" value="Salvar">
 									<input id="inputCancelarSaidaProduto" type="reset" name="cancelarSaidaProduto" value="Cancelar">
 								</article>
 							</div>
@@ -83,5 +85,46 @@
 			</form>	
 		</section>
 	</main>
+	<script>
+	
+	$(function() {
+		$("#inputTelefoneCliente").focusout(function() {
+			if($(this).val()!=''){
+				$("form").submit();
+			}	
+		});
+	});
+	</script>
+	<%if(request.getAttribute("mensagem")!=null){ %>
+		<script>
+		var msn = '<%=request.getAttribute("mensagem") %>';
+		if(msn!=null){
+			alert(msn);
+		}
+		</script>
+	<%} %>
+	<%if(request.getAttribute("cliente")!=null){ %>
+		<% Cliente cliente =(Cliente) request.getAttribute("cliente");%>
+		<script>
+		$(document).ready(function() {
+				$("#inputTelefoneCliente").val('<%=cliente.getNumTelefone()%>');
+				$("#inputNomeCliente").val('<%= cliente.getNomeCliente() %>');
+				$("#inputEstabelecimentoCliente").val('<%= cliente.getEstabelecimentoCliente() %>');
+				$("#textareaObservacaoCliente").val('<%= cliente.getObservacaoCliente() %>');
+		});
+		</script>
+	<%}if((request.getAttribute("mensagem")==null)){%>
+		<script>
+		$(document).ready(function() {
+				$("#inputTelefoneCliente").val(<%=request.getParameter("telefoneCliente")%>);
+		});
+		</script>
+	<%}else{%>
+		<script>
+		$(document).ready(function() {
+				$("#inputTelefoneCliente").focus();
+		});
+		</script>
+	<%}%>
 </body>
 </html>

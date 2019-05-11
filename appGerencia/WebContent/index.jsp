@@ -24,7 +24,7 @@
 	String senha = request.getParameter("senha");
 	if(usuario!=null && senha!=null && !usuario.isEmpty() && !senha.isEmpty()){
 		session.setAttribute("usuarioSession", usuario);
-		response.sendRedirect("visao/venda.jsp");
+		response.sendRedirect("venda.jsp");
 	}
 %>
 </body>

@@ -139,7 +139,9 @@ nav.subMenu ul input.cInputCadastroProduto{
 	font-size: 15px;
 	width: 70%;
 }
-
+#gerenciar input[type=submit], #inputCancelarCadastroCliente {
+	width: 20%;
+}
 /*Formatação da tabela de Pre-venda, Consultar Estoque*/
 table{
 	border:1px solid black;
