@@ -22,7 +22,7 @@
 		<c:import url="menuPrincipal.jsp" />
 		
 		<section id="sectionVenda">
-			<h1>VENDAS</h1>
+			<h1>VENDA</h1>
 			<form>
 				<div class="cInputDadosPreVenda">
 					<input id="inputClienteVenda" type="text" name="clienteVenda" placeholder="Cliente" autofocus>

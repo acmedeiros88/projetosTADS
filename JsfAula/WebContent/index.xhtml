@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<title>Olá Mundo!</title>
+</h:head> 
+<h:body> 
+	<h:form >
+	<h1>Pagina 1</h1>
+		<h:commandButton action="resource/page1" onmouseover="Olá mundo!!" value="Page1" />
+	</h:form>
+	<h:form onmouseover="Olá mundo com managedBean!!">
+	<h1>Utilizando ManagedBean</h1>
+		<h:commandButton action="#{usuarioBean.goPage1()}" value="Page1" />
+	</h:form>
+	<h:form>
+	<h1>Hibernate!!</h1>
+		<h:commandButton action="#{usuarioBean.goPageHibernate()}" value="Hibernate" />
+	</h:form>
+</h:body> 
+</html>

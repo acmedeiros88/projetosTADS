@@ -6,6 +6,7 @@
 	<persistence-unit name="appGerencia" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>entity.Cliente</class>
+		<class>entity.Componente</class>
 		<validation-mode>NONE</validation-mode>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

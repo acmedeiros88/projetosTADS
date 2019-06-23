@@ -23,7 +23,7 @@
 		
 		<section id="sectionEstoque">
 			<h1>ESTOQUE</h1>
-			<form>
+			<form action="GerenciarComponente" method="post">
 				<nav class="subMenu">
 					<ul>
 						<li>
@@ -49,51 +49,31 @@
 							</div>
 						</li>
 						<li>
-							<input type="radio" name="tabs" id="inputSaidaProduto" class="cInputSubMenu">
-							<label for="inputSaidaProduto">Saída</label>
-							<div class="contentArticle">
-								<article id="saidas" class="conteudoTab" style="margin-left: -16.2%;">
-									<input list="produtosSaida" id="inputListaProdutosSaida" name="inputlistaProdutoSaida" placeholder="Produtos">
-										<datalist id="produtosSaida">
-											<option value="Bolo"></option>
-											<option value="Salgado"></option>
-										</datalist><br>
-									<label>Quantidade:</label>
-									<br>
-									<input id="inputQuantidadeProdSaida" type="number" name="inputQuantidadeProdSaida" min="1" placeholder="und">
-									<br>
-									<label>Data:</label><br>
-									<input id="inputDataSaidaProd" type="date" name="inputDataSaidaProd" min="1" placeholder="dd/mes/ano">
-									<br>
-									<input id="inputSalvarSaidaProduto" type="button" name="salvarSaidaProduto" value="Salvar">
-									<input id="inputCancelarSaidaProduto" type="reset" name="cancelarSaidaProduto" value="Cancelar">
-								</article>
-							</div>
-						</li>
-						<li>
 							<input type="radio" name="tabs" id="inputCadastroProduto" class="cInputSubMenu">
 							<label for="inputCadastroProduto">Cadastro</label>
 							<div class="contentArticle">
-								<article id="cadastro" class="conteudoTab" style="margin-left: -29%;">
+								<article id="cadastro" class="conteudoTab" style="margin-left: -16.2%;">
 									<fieldset id="cadastroTipoProduto">
 										<legend>Tipo:</legend>
-										<input id="tipoIngrediente" type="radio" name="tipodeProduto" value="ingrediente">
+										<input id="tipoIngrediente" type="radio" name="tipodeProduto" value="Ingrediente">
 										<label>&nbsp; Ingrediente</label>
 
 										<input id="tipoBolo" type="radio" name="tipodeProduto" value="bolo" style="margin-left: 9%;">
 										<label>&nbsp; Bolo</label>
 										<br>
-										<input id="tipoEmbalagem" type="radio" name="tipodeProduto" value="embalagem">
+										<input id="tipoEmbalagem" type="radio" name="tipodeProduto" value="Embalagem">
 										<label>&nbsp; Embalagem</label>
 
-										<input id="tipoSalgado" type="radio" name="tipodeProduto" value="salgado">
+										<input id="tipoSalgado" type="radio" name="tipodeProduto" value="Salgado">
 										<label>&nbsp; Salgado</label>
 									</fieldset>
 									<input id="inputDescricaoProduto" class="cInputCadastroProduto" type="text" name="inputDescricaoProduto" placeholder="Descrição">
 									<input id="inputEstoqueMinProduto" class="cInputCadastroProduto" type="number" name="estoqueMinProduto" placeholder="Estoque mínimo">
+									<input id="inputValorVenda" type="number" name="valorVenda" placeholder="R$" style="width: 18%">
 									<select id="inputTipoUnitario" name="tipoUnitario" style="margin-left: 5%; width: 18%;">
 										<option disabled selected>Tipo Unítario</option>
 										<option value="gramas">Gramas</option>
+										<option value="gramas">Mililitros</option>
 										<option value="unidade">Unidade</option>
 									</select>
 									<br>
@@ -113,7 +93,7 @@
 										</tr>
 									</table>
 									<br>
-									<input id="inputSalvarCadastroProduto" type="button" name="salvarCadastroProduto" value="Salvar">
+									<input id="inputSalvarCadastroProduto" type="submit" name="salvarCadastroProduto" value="Salvar">
 									<input id="inputCancelarCadastroProduto" type="reset" name="cancelarCadastroProduto" value="Cancelar">
 								</article>
 							</div>
@@ -122,7 +102,7 @@
 							<input type="radio" name="tabs" id="inputConsultaProduto" class="cInputSubMenu">
 							<label for="inputConsultaProduto">Consulta</label>
 							<div class="contentArticle">
-								<article id="consulta" class="conteudoTab" style="margin-left: -41.7%;">
+								<article id="consulta" class="conteudoTab" style="margin-left: -29%;">
 									<table id="tableConsultaEstoque" style="margin-top: 1.5%;">
 										<tr>
 											<th>Código</th>
@@ -168,5 +148,43 @@
 			</form>	
 		</section>
 	</main>
+	<%if(request.getAttribute("mensagem")!=null){ %>
+		<script>
+		var msn = '<%=request.getAttribute("mensagem") %>';
+		if(msn!=null){
+			alert(msn);
+			$(document).ready(function() {
+				$("#inputEntradaProduto").prop("checked",false);
+				$("#inputCadastroProduto").prop("checked",true);
+				$("#inputValorVenda").css("display","none");
+			});
+		}
+		</script>
+	<%} %>
+	<script>
+		$(document).ready(function() {
+			$("#inputCadastroProduto").prop("checked",true);
+			$("#inputValorVenda").css("display","none");
+		});
+		$("#tipoIngrediente").add("#tipoEmbalagem").click(function() {
+			if ($("#tipoIngrediente").prop("checked")||$("#tipoEmbalagem").prop("checked")) {
+			$("#inputListaingrediente").prop("readonly", true);
+			$("#inputQuantidadeIngrediente").prop("readonly", true);
+			$("#botaoAdicionarIngrediente").prop("disabled", true);
+			$("#inputValorVenda").css("display","none");
+			$("#inputTipoUnitario").css("display","inline-block");
+			}
+		});
+
+		$("#tipoBolo").add("#tipoSalgado").click(function() {
+			if ($("#tipoBolo").prop("checked")||$("#tipoSalgado").prop("checked")) {
+			$("#inputListaingrediente").prop("readonly", false);
+			$("#inputQuantidadeIngrediente").prop("readonly", false);
+			$("#botaoAdicionarIngrediente").prop("disabled", false);
+			$("#inputValorVenda").css("display","inline-block");
+			$("#inputTipoUnitario").css("display","none");
+			}
+		});
+	</script>
 </body>
 </html>

@@ -13,63 +13,70 @@
 		 color: white;
 		}
 	</style>
-	<title>Pedidos</title>
+	<title>Pedido</title>
 </head>
 <body>
 	<main>
 			<c:import url="menuPrincipal.jsp" />
 			
 		    <section id="sectionPedido">
-			<h1>PEDIDOS</h1>
+			<h1>PEDIDO</h1>
 			<form>
 				<div>
 					<input id="inputNomeClientePedido" type="text" name="nomeClientePedido" placeholder="Nome Cliente" autofocus>
-					<br>
-					<input type="number" id="inputTelefoneClientePedido" name="telefoneClientePedido" min="0" placeholder="Telefone">
-					<input type="button" id="inputBuscarClientePedido" name="buscarClientePedido" value="Buscar">
 					<br>
 					<input list="produtosPedido" id="inputListaProdutosPedido" name="listaProdutosPedido" placeholder="Produto">
 						<datalist id="produtosPedido">
 							<option value="Bolo"></option>
 							<option value="Salgado"></option>
 						</datalist>
-					<label>Quantidade:</label><input id="inputQuantidadeProdutoPedido" type="number" name="quantidadeProdutoPedido" min="1" placeholder="und">
+					<label>Quantidade:</label>
+					<input id="inputQuantidadeProdutoPedido" type="number" name="quantidadeProdutoPedido" min="1" placeholder="und">
 					<br>
+					<label>Data de entrega:</label>
+					<input type="date" name="dataEntrega" id="inputDataEntrega" placeholder="dd/mes/ano">
 					<input id="inputSalvarPedido" type="button" name="salvarPedido" value="Salvar">
-					<input id="inputCancelarPedido" type="reset" name="cancelarPedido" value="Cancelar">
 				</div>
 				<div id="pedidosFeitos">
 					<legend>Lista de Pedidos Feitos</legend>
 					<table id="tablePedido">
 						<tr>
-							<th>Data</th>
-							<th>Nome Cliente</th>
-							<th>Produto</th>
-							<th>Quantidade</th>
-							<th>Atendido</th>
+							<th><input type="checkbox" name="novoPedido"></th>
+							<th>Código</th>
+							<th>Cliente</th>
+							<th>Data Solicitado</th>
+							<th>Data Entrega</th>
+							<th>Detalhes</th>
 						</tr>
 						<tr>
+							<td><input type="checkbox" name="novoPedido"></td>
+							<td>001</td>
+							<td>Cliente01</td>
 							<td>01/01/2019</td>
+							<td>02/01/2019</td>
+							<td>detralhes</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name="novoPedido"></td>
+							<td>002</td>
+							<td>Cliente01</td>
+							<td>01/01/2019</td>
+							<td>02/01/2019</td>
+							<td>detralhes</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name="novoPedido"></td>
+							<td>003</td>
 							<td>cliente01</td>
-							<td>produto01</td>
-							<td>1</td>
-							<td>EXCLUIR</td>
-						</tr>
-						<tr>
 							<td>01/01/2019</td>
-							<td>cliente02</td>
-							<td>produto02</td>
-							<td>1</td>
-							<td>EXCLUIR</td>
-						</tr>
-						<tr>
-							<td>01/01/2019</td>
-							<td>cliente02</td>
-							<td>produto02</td>
-							<td>1</td>
-							<td>EXCLUIR</td>
+							<td>02/01/2019</td>
+							<td>detalhes</td>
 						</tr>
 					</table>
+				</div>
+				<div>
+					<input id="inputItenProduzido" type="button" name="itenProduzido" value="Produzido">
+					<input id="inputExcluirPedido" type="button" name="excluirPedido" value="Excluir">
 				</div>
 			</form>	
 		</section>

@@ -1,5 +1,5 @@
 /*Formatação Pedidos*/
-#sectionPedido input{
+#sectionPedido input, #sectionProduzidos input{
 	height: 30px;
 }
 #inputNomeClientePedido{
@@ -21,17 +21,15 @@
 #sectionPedido label{
 	margin-left: 2.8%;
 }
-#inputSalvarPedido, #inputCancelarPedido{
+#inputSalvarPedido, #inputCancelarPedido, #inputItenProduzido, #inputExcluirPedido, #inputForaPedido,#inputVendaPedido{
 	width: 25%;
 	margin-bottom: 3%;
-}
-#inputSalvarPedido{
-	margin-left: 3.5%;
+	margin-left: 3.8%;
 }
 #tablePedido{
 	width: 62%;
 }
-#tablePedido td:nth-child(5) {
+#tablePedido td:nth-child(6) {
 	color: rgb(215, 0, 0);
 	cursor: pointer;
 }

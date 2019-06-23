@@ -36,8 +36,8 @@ nav.cNavLateralEsq ul{
 }
 nav li{
 	background-color: rgba(0,0,0,.2);
-	padding: 33.5px;
-	width: 34%;
+	padding: 27.9px;
+	width: 38%;
 	border: 1px solid rgba(0,0,0,.3);
 	border-left: 2px solid rgba(0,0,0,.3);
 	border-right: 2px solid rgba(0,0,0,.3);
@@ -133,6 +133,7 @@ section input{
 }
 nav.subMenu ul input.cInputCadastroProduto{
 	width: 25%;
+	margin-top: 6px;
 }
 .conteudoTab table{
 	margin-left: 5%;
